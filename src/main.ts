@@ -1,4 +1,4 @@
-import "./style.css";
+import "./style.scss";
 import Header from "./components/header";
 import homePage from "./home/index";
 import Footer from "./components/footer";
