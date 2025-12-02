@@ -1,13 +1,12 @@
 .site-header {
   width: 100%;
-  background: transparent;
+  background: bisque;
   padding: 1rem 0;
   position: sticky;
   top: 0;
   left: 0;
   right: 0;
   z-index: 1000;
-  background: transparent;
   color: inherit;
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
   transition: box-shadow 200ms;
@@ -16,17 +15,17 @@
 .site-nav {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 0 1rem;
+  padding: 0; 
 }
 
 .nav-list {
   list-style: none;
   margin: 0;
-  padding: 0;
+  padding: 0 1rem; /* small horizontal padding for items */
   display: flex;
   gap: 1rem;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: space-between; /* push first item left, last item right */
 }
 
 .nav-item {
@@ -38,9 +37,7 @@
   transition: transform 120ms, background-color 150ms;
 }
 
-.site-container {
-  background-color: transparent;
-}
+
 
 .nav-link {
   color: inherit;

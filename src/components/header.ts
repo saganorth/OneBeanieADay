@@ -5,12 +5,9 @@ export default function Header() {
     const header = document.createElement("header");
     header.className = "site-header";
     header.innerHTML = `
-    <div class="site-container">
-        <div class="site-brand">
-            <h1 class="site-title"><a href="/" class="brand-link">One Beanie A Day</a></h1>
-        </div>
         <nav class="site-nav">
             <ul class="nav-list">
+            <li class="nav-item"><a href="/" class="nav-link">Home</a></li>
                 <li class="nav-item"><a href="/shop" class="nav-link">Shop</a></li>
                 <li class="nav-item">
                     <a href="/cart" class="nav-link cart-link" aria-label="View cart">
@@ -21,7 +18,6 @@ export default function Header() {
                 </li>
             </ul>
         </nav>
-    </div>
     `;
     return header;
 }
