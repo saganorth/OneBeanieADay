@@ -2,13 +2,17 @@
 
 export default function Herocomponent() {
     const hero = document.createElement("section");
+    const img = document.createElement("img");
     hero.innerHTML = `
-        <div class="bg-blue-500 text-white p-8 text-center">
-            <h1 class="text-4xl font-bold mb-4">Discover Unique Items at Sagas Webshop!</h1>
-            <p class="text-lg">Your one-stop shop for exclusive products.</p>
+        <div class="hero-content">
+            <h1 class="hero-title">Discover Unique Items at Sagas Webshop!</h1>
+            <p class="hero-subtitle">Your one-stop shop for exclusive products.</p>
         </div>
     `;
-    hero.image = "src/assets/hero-image.jpg";
+    img.src = "src/assets/hero-image.jpg";
+    img.alt = "Hero image";
+    img.className = "hero-image";
+    hero.appendChild(img);
 
     return hero;
 }
