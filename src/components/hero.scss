@@ -1,0 +1,36 @@
+.hero-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 2rem 1rem;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.hero-content {
+  flex: 1 1 50%;
+}
+
+.hero-title {
+  font-size: 2rem;
+  margin: 0 0 0.5rem 0;
+}
+
+.hero-subtitle {
+  margin: 0 0 1rem 0;
+  color: rgba(255,255,255,0.85);
+}
+
+.hero-image {
+  flex: 0 0 240px;
+  width: 240px;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+}
+
+@media (max-width: 720px) {
+  .hero-section { flex-direction: column; text-align: center; }
+  .hero-image { width: 180px; }
+}
