@@ -1,6 +1,6 @@
 
 
-export default function Herocomponent() {
+export default function HeroComponent() {
     const hero = document.createElement("section");
     const img = document.createElement("img");
     hero.innerHTML = `
@@ -9,7 +9,7 @@ export default function Herocomponent() {
             <p class="hero-subtitle">Your one-stop shop for exclusive products.</p>
         </div>
     `;
-    img.src = "src/assets/hero-image.jpg";
+    img.src = "/assets/bookpage.jpg";
     img.alt = "Hero image";
     img.className = "hero-image";
     hero.appendChild(img);
