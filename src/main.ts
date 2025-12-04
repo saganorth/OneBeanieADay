@@ -11,7 +11,6 @@ const app = document.getElementById("app");
 
 if (app) {
         document.body.insertBefore(Header(), app);
-        // Simple client-side mount: show shop when URL is /shop, otherwise show home
         const pathname = window.location.pathname || '/';
 
         function handleAddToCart(productId: string) {

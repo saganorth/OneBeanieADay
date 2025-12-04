@@ -18,7 +18,7 @@ export default function productCard(
   title.textContent = (product as any).name || '';
   card.appendChild(title);
 
-  // image component (includes hover price overlay)
+
   card.appendChild(productImg(product as any, assetBaseUrl));
 
   const price = document.createElement('div');
@@ -42,8 +42,3 @@ export default function productCard(
   return cardWrap;
 }
 
-function formatPrice(price: number | undefined): string {
-  if (price === undefined || price === null) return '';
-  if (price > 1000) return `${Math.round(price / 100)} SEK`;
-  return `${price} SEK`;
-}
