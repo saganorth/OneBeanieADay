@@ -2,7 +2,7 @@ export default interface Product {
   imageUrl: string;
   id: string;
   category: string;
-  namn: string;
+  name: string;
 }
 
 export type Products = {
