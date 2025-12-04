@@ -1,39 +1,36 @@
+import type{ Product } from '../models/product';
+import { ProductListProps } from '../models/productIteam';
+import PopUpComponent from './popup';
 
-
-
-
-interface Product {
-  imageUrl: string;
-  id: string;
-  category: string;
-  namn: string;
-}
-
-interface ProductListProps {
-  products: Product[];
-  assetBaseUrl?: string;
-  handleAddToCart: (product: Product) => void;
-}
-
-export default function ProductList()=> ({ 
+export default function ProductList({ 
   products, 
   handleAddToCart,
-  assetBaseUrl = '' 
-}) => {
-  const [showPopup, setShowPopup] = useState(false);
-  const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
+  assetBaseUrl = "",
+}: ProductListProps): HTMLElement {
+ const root = document.createElement("div");
+    root.className = "productlist";
+    const grid = document.createElement("div");
+    grid.className = "productgrid";
+    root.appendChild(grid);
+    root.appendChild(PopUpComponent().showPopup);
+ 
+    products.forEach((product)=> {
+        const cardWrap =document.createElement("div");
+        cardWrap.className = "productcardwrap";
+        const card = document.createElement("div");
+        card.className = "productcard";
+        const a = document.createElement("a");
+        a.href = `/products/${product.category}/${product.id}`;
+        a.className = "productlink";
+        const img = document.createElement("img");
+        
+        const leadingUrl = product.imageUrl.startsWith('/')
+          ? `${assetBaseUrl}${product.imageUrl}`
+          : `${assetBaseUrl}/${product.imageUrl}`;
 
-  const handleCartClick = (product: Product) => {
-    handleAddToCart(product);
-    setSelectedProduct(product);
-    setShowPopup(true);
-  
-    setTimeout(() => {
-      setShowPopup(false);
-    }, 2500);
-  };
+    })
 
-  return (
+ProductList.map((product) =>
     <div className="flex flex-wrap justify-around">
       {products.map((product) => {
         const imageUrl = product.imageUrl.startsWith('/')
@@ -79,4 +76,3 @@ export default function ProductList()=> ({
   );
 };
 
-export default ProductList;
