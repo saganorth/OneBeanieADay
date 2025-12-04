@@ -7,7 +7,7 @@ export default function Header() {
     header.innerHTML = `
         <nav class="site-nav">
             <ul class="nav-list">
-            <li class="nav-item"><a href="/" class="nav-link">Webshop</a></li>
+            <li class="nav-item"><a href="/" class="nav-link">One Beanie a day </a></li>
                 <li class="nav-item"><a href="/shop" class="nav-link">Shop</a></li>
                 <li class="nav-item">
                     <a href="/cart" class="nav-link cart-link" aria-label="View cart">
