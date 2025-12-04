@@ -1,64 +1,73 @@
 
-import { Product } from '../models/product'; 
+import type { Product } from '../models/productItem';
 
 type CartItem = Product & {
   quantity: number;
 };
 
-type CartContextType = {
-  cartItems: CartItem[];
-  addToCart: (product: Product) => void;
-  removeFromCart: (productId: string) => void;
-  clearCart: () => void;
-  calculateTotal: () => number;
-};
+const STORAGE_KEY = 'cartItems';
 
-const CartContext = createContext<CartContextType>({
-  cartItems: [],
-  addToCart: () => {},
-  removeFromCart: () => {},
-  clearCart: () => {},
-  calculateTotal: () => 0,
-});
+let items: CartItem[] = load();
+const subscribers: Array<() => void> = [];
 
-export const useCart = () => useContext(CartContext);
+function load(): CartItem[] {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    return raw ? (JSON.parse(raw) as CartItem[]) : [];
+  } catch {
+    return [];
+  }
+}
 
-type CartProviderProps = {
-  children: ReactNode;
-};
+function save() {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(items));
+  // notify subscribers
+  try {
+    subscribers.forEach((s) => s());
+  } catch {}
+}
 
-export const CartProvider: React.FC<CartProviderProps> = ({ children }) => {
-  const [cartItems, setCartItems] = useState<CartItem[]>([]);
+export function getCart(): CartItem[] {
+  return items.slice();
+}
 
-  const addToCart = (product: Product) => {
-    setCartItems((prevItems) => {
-      const existingItem = prevItems.find((item) => item.id === product.id);
-      if (existingItem) {
-        return prevItems.map((item) =>
-          item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
-        );
-      }
-      return [...prevItems, { ...product, quantity: 1 }];
-    });
+export function getCount(): number {
+  return items.reduce((sum, it) => sum + it.quantity, 0);
+}
+
+export function addToCart(item: { id: string; quantity?: number; name?: string; price?: number }) {
+  const qty = item.quantity ?? 1;
+  const existing = items.find((i) => i.id === item.id);
+  if (existing) {
+    existing.quantity += qty;
+  } else {
+    items.push({ id: item.id, quantity: qty, name: item.name, price: item.price } as CartItem);
+  }
+  save();
+}
+
+export function onChange(fn: () => void) {
+  subscribers.push(fn);
+  return () => {
+    const i = subscribers.indexOf(fn);
+    if (i >= 0) subscribers.splice(i, 1);
   };
+}
 
-  const removeFromCart = (productId: string) => {
-    setCartItems((prevItems) => prevItems.filter((item) => item.id !== Number(productId)));
-  };
+// backward-compatible alias; prefer `onChange` in new code
+export const subscribe = onChange;
 
-  const clearCart = () => {
-    setCartItems([]);
-  };
+export function removeFromCart(id: string) {
+  items = items.filter((i) => i.id !== id);
+  save();
+}
 
-  const calculateTotal = () => {
-    return cartItems.reduce((total, item) => total + item.pris * item.quantity, 0);
-  };
+export function clearCart() {
+  items = [];
+  save();
+}
 
-  return (
-    <CartContext.Provider
-      value={{ cartItems, addToCart, removeFromCart, clearCart, calculateTotal }}
-    >
-      {children}
-    </CartContext.Provider>
-  );
-};
+export function getTotal(format = false): number | string {
+  const total = items.reduce((sum, it) => sum + ((it.price ?? 0) * it.quantity), 0);
+  return format ? `${Math.round(total / (total > 1000 ? 100 : 1))} SEK` : total;
+}

@@ -1,5 +1,5 @@
 import aboutSection from "../components/aboutSection";
-import Herocomponent from "../components/hero";
+import Herocomponent from "../components/ui/hero";
 
 export default function homePage() {
     const container = document.createElement("div");

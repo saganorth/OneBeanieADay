@@ -1,5 +1,6 @@
 import type Product from '../models/productIteam';
 import productImg from './productImg';
+import { addToCart } from '../context/cartContext';
 
 export default function productCard(
   product: Product,
@@ -31,7 +32,13 @@ export default function productCard(
   btn.className =
     'add-to-cart-button';
   btn.addEventListener('click', () => {
-    handleAddToCart(product as any);
+    // Prefer calling the centralized cart store; also call optional handler passed by caller
+    try {
+      addToCart({ id: (product as any).id, quantity: 1, name: (product as any).name, price: (product as any).price });
+    } catch {}
+    if (typeof handleAddToCart === 'function') {
+      try { handleAddToCart(product as any); } catch {}
+    }
     showPopup(`${(product as any).name} added to cart`);
   });
 
