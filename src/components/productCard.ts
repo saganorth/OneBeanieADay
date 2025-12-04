@@ -23,14 +23,13 @@ export default function productCard(
 
   const price = document.createElement('div');
   price.className = 'product-price';
-  price.textContent = formatPrice((product as any).price);
+  price.textContent = `$${(product as any).price.toFixed(2)}`;
   card.appendChild(price);
 
   const btn = document.createElement('button');
   btn.textContent = 'Add to Cart';
   btn.className =
-    'center bg-black bg-opacity-50 text-white opacity-100 transition-opacity duration-300 px-3 py-2 text-sm rounded';
-  btn.style.fontFamily = "'Caveat', cursive";
+    'add-to-cart-button';
   btn.addEventListener('click', () => {
     handleAddToCart(product as any);
     showPopup(`${(product as any).name} added to cart`);
