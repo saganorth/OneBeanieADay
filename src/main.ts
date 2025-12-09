@@ -5,6 +5,7 @@ import Header from "./components/ui/header";
 import homePage from "./home/index";
 import shopPage from "./shop/index";
 import cartPage from "./cart/index";
+import checkoutPage from "./checkout/index";
 import products from "./data/products";
 import Footer from "./components/ui/footer";
 import { renderProductDetailById } from "./components/productDetail";
@@ -27,7 +28,9 @@ function handleAddToCart(productId: string) {
   console.log('add-to-cart', productId);
 }
 
-if (pathname === '/cart') {
+if (pathname === '/checkout') {
+  app.appendChild(checkoutPage());
+} else if (pathname === '/cart') {
   app.appendChild(cartPage());
 } else if (detailMatch) {
   renderProductDetailById(app, detailMatch[1], products as any);

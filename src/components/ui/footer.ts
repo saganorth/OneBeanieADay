@@ -1,4 +1,4 @@
-import "./footer.scss";
+import "../../style/footer.scss";
 export default function Footer() {
     const footer = document.createElement("footer");
     footer.innerHTML = `

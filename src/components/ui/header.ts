@@ -1,5 +1,5 @@
 import "@fortawesome/fontawesome-free/css/all.css";
-import "./header.scss";
+import "../../style/header.scss";
 import { getCount, onChange } from '../../context/cartContext';
 
 export default function Header() {

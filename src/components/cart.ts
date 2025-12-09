@@ -66,8 +66,8 @@ export default function Cart() {
     const totalDiv = document.createElement('div');
     totalDiv.className = 'cart-total';
     totalDiv.innerHTML = `
-      <div>Subtotal: ${(total as number).toFixed(2)} kr</div>
-      <div>Total: ${(total as number).toFixed(2)} kr</div>
+      <div> Shipping: 59 kr</div>
+      <div>Total: ${(total as number + 59).toFixed(2)} kr</div>
     `;
     container.appendChild(totalDiv);
 
