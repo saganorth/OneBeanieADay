@@ -4,6 +4,7 @@ import "@fortawesome/fontawesome-free/css/all.min.css";
 import Header from "./components/ui/header";
 import homePage from "./home/index";
 import shopPage from "./shop/index";
+import cartPage from "./cart/index";
 import products from "./data/products";
 import Footer from "./components/ui/footer";
 import { renderProductDetailById } from "./components/productDetail";
@@ -26,12 +27,13 @@ function handleAddToCart(productId: string) {
   console.log('add-to-cart', productId);
 }
 
-if (detailMatch) {
+if (pathname === '/cart') {
+  app.appendChild(cartPage());
+} else if (detailMatch) {
   renderProductDetailById(app, detailMatch[1], products as any);
 } else if (pathname.startsWith('/shop')) {
   app.appendChild(shopPage(products as any, handleAddToCart));
 } else {
   app.appendChild(homePage());
 }
-
 document.body.appendChild(Footer());

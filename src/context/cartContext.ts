@@ -21,7 +21,6 @@ function load(): CartItem[] {
 
 function save() {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(items));
-  // notify subscribers
   try {
     subscribers.forEach((s) => s());
   } catch {}
@@ -54,7 +53,6 @@ export function onChange(fn: () => void) {
   };
 }
 
-// backward-compatible alias; prefer `onChange` in new code
 export const subscribe = onChange;
 
 export function removeFromCart(id: string) {

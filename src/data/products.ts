@@ -3,7 +3,7 @@ import type { Products } from "../models/productIteam";
   export const products: Products[] = [
     {
       id: "beanie-001",
-      name: "Handmade Beanie #1",
+      name: "Day 1",
       price: 200,
       material: "akrylic",
       description: "One-of-one hand-crocheted beanie — unique piece.",
@@ -13,7 +13,7 @@ import type { Products } from "../models/productIteam";
     },
     {
       id: "beanie-002",
-      name: "Handmade Beanie #2",
+      name: "Day 2",
       price: 200,
       material: "crochet",
       description: "One-of-one hand-crocheted beanie — unique piece.",
@@ -24,7 +24,7 @@ import type { Products } from "../models/productIteam";
     },
     {
       id: "beanie-003",
-      name: "Handmade Beanie #3",
+      name: "Day 3",
       price: 200,
       material: "crochet",
       description: "One-of-one hand-crocheted beanie — unique piece.",
@@ -35,7 +35,7 @@ import type { Products } from "../models/productIteam";
     },
     {
       id: "beanie-004",
-      name: "Handmade Beanie #4",
+      name: "Day 4",
       price: 200,
       material: "crochet",
       description: "One-of-one hand-crocheted beanie — unique piece.",
@@ -46,7 +46,7 @@ import type { Products } from "../models/productIteam";
     },
     {
       id: "beanie-005",
-      name: "Handmade Beanie #5",
+      name: "Day 5",
       price: 200,
       material: "crochet",
       description: "One-of-one hand-crocheted beanie — unique piece.",
@@ -57,7 +57,7 @@ import type { Products } from "../models/productIteam";
     },
     {
       id: "beanie-006",
-      name: "Handmade Beanie #6",
+      name: "Day 6",
       price: 200,
       material: "crochet",
       description: "One-of-one hand-crocheted beanie — unique piece.",
@@ -68,8 +68,8 @@ import type { Products } from "../models/productIteam";
     },
     {
       id: "beanie-007",
-      name: "Handmade Beanie #7",
-      price: 2000,
+      name: "Day 7",
+      price: 200,
       material: "crochet",
       description: "One-of-one hand-crocheted beanie — unique piece.",
       images: ["/asset/69672FA2-8C3F-48FA-9EF0-82ABAC144C8E_4_5005_c.jpeg"],
@@ -79,8 +79,8 @@ import type { Products } from "../models/productIteam";
     },
     {
       id: "beanie-008",
-      name: "Handmade Beanie #8",
-      price: 20000,
+      name: "Day 8",
+      price: 200,
       material: "crochet",
       description: "One-of-one hand-crocheted beanie — unique piece.",
       images: ["/asset/F18073FB-F273-416E-81E6-34E60A339AD1_4_5005_c.jpeg"],
@@ -89,8 +89,8 @@ import type { Products } from "../models/productIteam";
     },
     {
       id: "beanie-009",
-      name: "Handmade Beanie #9",
-      price: 20000,
+      name: "Day 9",
+      price: 200,
       material: "crochet",
       description: "One-of-one hand-crocheted beanie — unique piece.",
       images: ["/asset/751C9CD5-98AF-401B-8131-C5ACEE88D63F_4_5005_c.jpeg"],
@@ -99,8 +99,8 @@ import type { Products } from "../models/productIteam";
     },
     {
       id: "beanie-010",
-      name: "Handmade Beanie #10",
-      price: 2000,
+      name: "Day 10",
+      price: 200,
       material: "crochet",
       description: "One-of-one hand-crocheted beanie — unique piece.",
       images: ["/asset/0C1ED2C1-46B8-4A67-B507-FFF73790745B_4_5005_c.jpeg"],
@@ -109,8 +109,8 @@ import type { Products } from "../models/productIteam";
     },
     {
       id: "beanie-011",
-      name: "Handmade Beanie #11",
-      price: 2000,
+      name: "Day 11",
+      price: 200,
       material: "crochet",
       description: "One-of-one hand-crocheted beanie — unique piece.",
       images: ["/asset/CFBA17D4-A3E2-451A-882C-B06A8BAC647A_4_5005_c.jpeg"],
@@ -119,7 +119,7 @@ import type { Products } from "../models/productIteam";
     },
     {
       id: "beanie-012",
-      name: "Handmade Beanie #12",
+      name: "Day 12",
       price: 200,
       material: "crochet",
       description: "One-of-one hand-crocheted beanie — unique piece.",
@@ -129,7 +129,7 @@ import type { Products } from "../models/productIteam";
     },
     {
       id: "beanie-013",
-      name: "Handmade Beanie #13",
+      name: "Day 13",
       price: 200,
       material: "crochet",
       description: "One-of-one hand-crocheted beanie — unique piece.",
@@ -139,7 +139,7 @@ import type { Products } from "../models/productIteam";
     },
     {
       id: "beanie-014",
-      name: "Handmade Beanie #14",
+      name: "Day 14",
       price: 200,
       material: "crochet",
       description: "One-of-one hand-crocheted beanie — unique piece.",
@@ -150,7 +150,7 @@ import type { Products } from "../models/productIteam";
     },
     {
       id: "beanie-015",
-      name: "Handmade Beanie #15",
+      name: "Day 15",
       price: 200,
       material: "crochet",
       description: "One-of-one hand-crocheted beanie — unique piece.",
@@ -161,7 +161,7 @@ import type { Products } from "../models/productIteam";
     },
     {
       id: "beanie-016",
-      name: "Handmade Beanie #16",
+      name: "Day 16",
       price: 200,
       material: "crochet",
       description: "One-of-one hand-crocheted beanie — unique piece.",
@@ -172,7 +172,7 @@ import type { Products } from "../models/productIteam";
     },
     {
       id: "beanie-017",
-      name: "Handmade Beanie #17",
+      name: "Day 17",
       price: 200,
       material: "crochet",
       description: "One-of-one hand-crocheted beanie — unique piece.",
@@ -182,7 +182,7 @@ import type { Products } from "../models/productIteam";
     },
     {
       id: "beanie-018",
-      name: "Handmade Beanie #18",
+      name: "Day 18",
       price: 200,
       material: "crochet",
       description: "One-of-one hand-crocheted beanie — unique piece.",
@@ -192,7 +192,7 @@ import type { Products } from "../models/productIteam";
     },
     {
       id: "beanie-019",
-      name: "Handmade Beanie #19",
+      name: "Day 19",
       price: 200,
       material: "crochet",
       description: "One-of-one hand-crocheted beanie — unique piece.",
@@ -202,7 +202,7 @@ import type { Products } from "../models/productIteam";
     },
     {
       id: "beanie-020",
-      name: "Handmade Beanie #20",
+      name: "Day 20",
       price: 200,
       material: "crochet",
       description: "One-of-one hand-crocheted beanie — unique piece.",
