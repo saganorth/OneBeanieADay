@@ -1,7 +1,17 @@
+@font-face {
+  font-family: 'Lovelo Black';
+  src: url('/fonts/lovelo/lovelo-black.woff2') format('woff2'),
+       url('/fonts/lovelo/lovelo-black.woff') format('woff'),
+       url('/fonts/lovelo/lovelo-black.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
 .site-header {
   width: 100%;
   background: bisque;
-  padding: 1rem 0;
+  padding: 0.75rem 0;
   position: sticky;
   top: 0;
   left: 0;
@@ -12,53 +22,71 @@
   transition: box-shadow 200ms;
 }
 
-.site-nav {
+.header-container {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 0; 
-}
-
-.nav-list {
-  list-style: none;
-  margin: 0;
-  padding: 0 1rem; 
+  padding: 0 1rem;
   display: flex;
+  justify-content: center;
+  align-items: center;
   gap: 1rem;
-  align-items: center;
-  justify-content: space-between; 
+  position: relative;
 }
 
-.nav-item {
-  margin: 0;
-  padding: 0 0.25rem;
-  display: inline-flex;
-  align-items: center;
-  border-radius: 6px;
-  transition: transform 120ms, background-color 150ms;
+.header-title {
+  flex: 1;
+  text-align: center;
 }
 
-
-
-.nav-link {
+.site-title {
+  font-family: 'Lovelo Black', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 900;
   color: inherit;
   text-decoration: none;
-  padding: 0.5rem 0.75rem;
-  border-radius: 6px;
+  display: inline-block;
+  transition: transform 150ms ease;
+  text-transform: uppercase;
+  outline: none;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+
+  @media (min-width: 640px) {
+    font-size: 2rem;
+  }
+
+  @media (min-width: 1024px) {
+    font-size: 2.5rem;
+  }
+}
+
+.cart-icon-link {
+  position: absolute;
+  right: 1rem;
+  font-size: 1rem;
+  color: inherit;
+  text-decoration: none;
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  transition: background-color 150ms, color 150ms, transform 120ms;
-}
-
-.nav-link:hover,
-.nav-link:focus {
-  background-color: rgba(255, 255, 255, 0.04);
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  transition: background-color 150ms, transform 120ms;
+  flex-shrink: 0;
   outline: none;
-  transform: translateY(-1px);
-}
 
-.cart-link {
-  position: relative;
+  @media (min-width: 640px) {
+    font-size: 1.1rem;
+    width: 40px;
+    height: 40px;
+  }
+
+  @media (min-width: 1024px) {
+    font-size: 1.2rem;
+  }
 }
 
 .cart-count {
@@ -75,9 +103,10 @@
   line-height: 18px;
   text-align: center;
   display: inline-block;
+  font-weight: bold;
 }
 
-/* screen-reader only */
+
 .sr-only {
   position: absolute !important;
   width: 1px !important;
