@@ -31,7 +31,7 @@ function handleAddToCart(productId: string) {
 if (pathname === '/checkout') {
   app.appendChild(checkoutPage());
 } else if (pathname === '/cart') {
-  app.appendChild(cartPage());
+  app.appendChild(cartPage(products as any));
 } else if (detailMatch) {
   renderProductDetailById(app, detailMatch[1], products as any);
 } else if (pathname.startsWith('/shop')) {

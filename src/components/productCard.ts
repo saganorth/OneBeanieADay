@@ -1,38 +1,49 @@
 import type Product from '../models/productIteam';
-import productImg from './productImg';
 import { addToCart } from '../context/cartContext';
 
 export default function productCard(
   product: Product,
   handleAddToCart: (p: Product) => void,
-  showPopup: (msg: string) => void,
-  assetBaseUrl = ''
+  showPopup: (msg: string) => void
 ): HTMLElement {
-  const cardWrap = document.createElement('div');
-  cardWrap.className = 'productcardwrap';
-
   const card = document.createElement('div');
-  card.className = 'productcard';
+  card.className = 'product-card';
 
-  const title = document.createElement('h2');
-  title.className = 'producttitle';
+  // Product image container with link
+  const imageContainer = document.createElement('div');
+  imageContainer.className = 'product-image';
+  
+  const link = document.createElement('a');
+  link.href = `/detail/${(product as any).id}`;
+  
+  const img = document.createElement('img');
+  const imageUrl = (product as any).images?.[0] || '';
+  img.src = imageUrl;
+  img.alt = (product as any).name || 'Product';
+  
+  link.appendChild(img);
+  imageContainer.appendChild(link);
+  card.appendChild(imageContainer);
+
+
+  const info = document.createElement('div');
+  info.className = 'product-info';
+
+  const title = document.createElement('h3');
   title.textContent = (product as any).name || '';
-  card.appendChild(title);
-
-
-  card.appendChild(productImg(product as any, assetBaseUrl));
+  info.appendChild(title);
 
   const price = document.createElement('div');
-  price.className = 'product-price';
-  price.textContent = `$${(product as any).price.toFixed(2)}`;
-  card.appendChild(price);
+  price.className = 'price';
+  price.textContent = `${(product as any).price.toFixed(2)}kr`;
+  info.appendChild(price);
+
+  card.appendChild(info);
 
   const btn = document.createElement('button');
   btn.textContent = 'Add to Cart';
-  btn.className =
-    'add-to-cart-button';
+  btn.className = 'add-to-cart-btn';
   btn.addEventListener('click', () => {
-    // Prefer calling the centralized cart store; also call optional handler passed by caller
     try {
       addToCart({ id: (product as any).id, quantity: 1, name: (product as any).name, price: (product as any).price });
     } catch {}
@@ -43,8 +54,7 @@ export default function productCard(
   });
 
   card.appendChild(btn);
-  cardWrap.appendChild(card);
 
-  return cardWrap;
+  return card;
 }
 

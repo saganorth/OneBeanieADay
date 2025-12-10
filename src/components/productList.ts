@@ -8,10 +8,10 @@ export default function ProductList({
   assetBaseUrl = '',
 }: ProductListProps): HTMLElement {
   const root = document.createElement('div');
-  root.className = 'productlist';
+  root.className = 'shop-container';
 
   const grid = document.createElement('div');
-  grid.className = 'productgrid';
+  grid.className = 'products-grid';
   root.appendChild(grid);
 
   const { showPopup } = PopUpComponent();

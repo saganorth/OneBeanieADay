@@ -1,9 +1,14 @@
 import { getCart, removeFromCart, getTotal, onChange } from '../context/cartContext';
-import productImg from './productImg';
+import type Product from '../models/productIteam';
 
-export default function Cart() {
+export default function Cart(products: Product[] = []) {
   const container = document.createElement('div');
   container.className = 'cart-container';
+
+  function getProductImage(productId: string): string {
+    const product = products.find((p: Product) => p.id === productId) as any;
+    return product?.images?.[0] || '';
+  }
 
   function renderCart() {
     container.innerHTML = '';
@@ -22,38 +27,43 @@ export default function Cart() {
       const li = document.createElement('li');
       li.className = 'cart-item';
 
-    li.innerHTML = `
-      <img src="${item.productImg}" alt="${item.name}" width="64" height="64">
-      <div>
-        <strong>${item.name}</strong>
-        <div>${item.price} kr × ${item.quantity}</div>
-      </div>
-      <div>${(item.price * item.quantity).toFixed(2)} kr</div>
-      <div class="quantity-controls">
-        <button class="qty-btn minus" aria-label="Decrease quantity">−</button>
-        <span class="qty-display">${item.quantity}</span>
-        <button class="qty-btn plus" aria-label="Increase quantity">+</button>
-      </div>
-    `;
+      const imageUrl = getProductImage(item.id);
+      const imageHTML = imageUrl ? `<img src="${imageUrl}" alt="${item.name}" class="cart-item-image">` : '';
 
-    const minusBtn = li.querySelector('.qty-btn.minus') as HTMLButtonElement;
-    const plusBtn = li.querySelector('.qty-btn.plus') as HTMLButtonElement;
-    
-    minusBtn.addEventListener('click', () => {
-      if (item.quantity > 1) {
-        item.quantity--;
+      li.innerHTML = `
+        ${imageHTML}
+        <div class="cart-item-info">
+          <strong>${item.name}</strong>
+          <div class="cart-item-price">${item.price} kr × ${item.quantity}</div>
+        </div>
+        <div class="cart-item-subtotal">${(item.price * item.quantity).toFixed(2)} kr</div>
+        <div class="quantity-controls">
+          <button class="qty-btn minus" aria-label="Decrease quantity">−</button>
+          <span class="qty-display">${item.quantity}</span>
+          <button class="qty-btn plus" aria-label="Increase quantity">+</button>
+        </div>
+      `;
+
+      const minusBtn = li.querySelector('.qty-btn.minus') as HTMLButtonElement;
+      const plusBtn = li.querySelector('.qty-btn.plus') as HTMLButtonElement;
+      
+      minusBtn.addEventListener('click', () => {
+        if (item.quantity > 1) {
+          item.quantity--;
+          renderCart();
+        }
+      });
+      
+      plusBtn.addEventListener('click', () => {
+        item.quantity++;
         renderCart();
-      }
-    });
-    
-    plusBtn.addEventListener('click', () => {
-      item.quantity++;
-      renderCart();
-    });
+      });
 
       const removeBtn = document.createElement('button');
-    removeBtn.innerHTML = '<i class="fa fa-trash"></i>';
-    removeBtn.setAttribute('aria-label', 'Remove item');
+      removeBtn.innerHTML = '<i class="fa fa-trash"></i>';
+      removeBtn.setAttribute('aria-label', 'Remove item');
+      removeBtn.setAttribute('title', 'Remove item');
+      removeBtn.className = 'remove-btn';
       removeBtn.addEventListener('click', () => {
         removeFromCart(item.id);
       });
@@ -81,7 +91,6 @@ export default function Cart() {
   }
 
   renderCart();
-
 
   const unsubscribe = onChange(() => {
     renderCart();

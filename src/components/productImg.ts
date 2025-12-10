@@ -1,6 +1,6 @@
 import type Product from '../models/productIteam';
 
-export default function productImg(product: Product, assetBaseUrl = "/public"): HTMLElement {
+export default function productImg(product: Product, assetBaseUrl = ""): HTMLElement {
     const container = document.createElement("div");
     container.className = "product-image-container";
     container.style.position = "relative";
@@ -13,15 +13,12 @@ export default function productImg(product: Product, assetBaseUrl = "/public"): 
 
     const img = document.createElement("img");
     const firstImage = (product as any).images && (product as any).images.length ? (product as any).images[0] : "";
-    const leadingSlash = firstImage.startsWith("/") ? "" : "/";
-    img.src = `${assetBaseUrl}${leadingSlash}${firstImage}`;
+    img.src = firstImage;
     img.alt = (product as any).name ?? "";
-    img.width = 500;
-    img.height = 300;
-    img.className = "w-full mb-4 object-contain";
-    (img.style as CSSStyleDeclaration).maxHeight = "300px";
+    img.style.width = "100%";
+    img.style.height = "auto";
     img.style.display = "block";
-
+    img.style.objectFit = "cover";
 
     a.appendChild(img);
     container.appendChild(a);

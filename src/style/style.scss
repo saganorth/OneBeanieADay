@@ -1,3 +1,12 @@
+@use './shop.scss';
+@use './cart.scss';
+@use './detail.scss';
+@use './header.scss';
+@use './footer.scss';
+@use './hero.scss';
+@use './checkout.scss';
+@use './home.scss';
+
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   font-size: 16px;
@@ -50,18 +59,9 @@ h1 {
 }
 
 #app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 1rem;
-  text-align: center;
-
-  @media (min-width: 640px) {
-    padding: 1.5rem;
-  }
-
-  @media (min-width: 1024px) {
-    padding: 2rem;
-  }
+  margin: 0;
+  padding: 0;
+  width: 100%;
 
   .logo {
   height: 6em;
@@ -91,21 +91,7 @@ h1 {
     transition: all 0.3s ease;
   }
 
-  button:hover {
-    background-color: #333;
-    border-color: #fff;
-    transform: translateY(-2px);
-  }
-
-  button:active {
-    transform: translateY(0);
-  }
-
-  button:focus,
-  button:focus-visible {
-    outline: 2px solid #007bff;
-    outline-offset: 2px;
-  }
+  
 } 
 
 @media (prefers-color-scheme: light) {
