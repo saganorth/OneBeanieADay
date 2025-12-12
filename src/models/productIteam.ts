@@ -14,6 +14,9 @@ export type Products = {
   sku: string;
   stock: number;
   material?: string;
+  size?: 'small' | 'medium' | 'large' | 'one-size';
+  colors?: string[];
+  style?: string[];
 };
 
 

@@ -7,12 +7,8 @@ export default function ProductList({
   handleAddToCart,
   assetBaseUrl = '',
 }: ProductListProps): HTMLElement {
-  const root = document.createElement('div');
-  root.className = 'shop-container';
-
   const grid = document.createElement('div');
   grid.className = 'products-grid';
-  root.appendChild(grid);
 
   const { showPopup } = PopUpComponent();
 
@@ -21,7 +17,7 @@ export default function ProductList({
     grid.appendChild(cardElem);
   });
 
-  return root;
+  return grid;
 }
     
 

@@ -15,6 +15,13 @@ export default function Cart(products: Product[] = []) {
     const cartItems = getCart();
     const total = getTotal();
 
+    // Keep Shopping link
+    const keepShoppingLink = document.createElement('a');
+    keepShoppingLink.href = '/shop';
+    keepShoppingLink.className = 'cart-keep-shopping';
+    keepShoppingLink.innerHTML = '<i class="fas fa-arrow-left"></i> Continue shopping';
+    container.appendChild(keepShoppingLink);
+
     if (cartItems.length === 0) {
       const emptyMsg = document.createElement('p');
       emptyMsg.textContent = 'Your cart is empty.';

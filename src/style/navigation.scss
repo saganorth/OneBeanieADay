@@ -1,0 +1,73 @@
+// Navigation button styles for detail, shop, and checkout pages
+.detail-nav-buttons,
+.shop-nav-buttons,
+.checkout-nav-buttons {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    padding: 1rem;
+    flex-wrap: wrap;
+
+    @media (max-width: 640px) {
+        flex-direction: column;
+    }
+}
+
+.nav-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    background: #111;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+
+    i {
+        font-size: 1rem;
+    }
+
+    &:hover {
+        background: #333;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    &:active {
+        transform: translateY(0);
+    }
+
+    @media (max-width: 640px) {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+// Specific button variants
+.cart-button {
+    background: #2c5aa0;
+
+    &:hover {
+        background: #1e3d6f;
+    }
+}
+
+.shop-button {
+    background: #28a745;
+
+    &:hover {
+        background: #1e7e34;
+    }
+}
+
+.home-button {
+    background: #6c757d;
+
+    &:hover {
+        background: #545b62;
+    }
+}

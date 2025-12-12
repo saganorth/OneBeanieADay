@@ -1,5 +1,5 @@
 import type Product from '../models/productIteam';
-
+import PopUpComponent from './popup';
 
 export default function ProductDetail (product: Product | null): HTMLElement {
   const root = document.createElement('div');
@@ -9,6 +9,17 @@ export default function ProductDetail (product: Product | null): HTMLElement {
     root.textContent = 'Product not found.';
     return root;
   }
+
+  // Subtle back link
+  const backLink = document.createElement('a');
+  backLink.href = '/shop';
+  backLink.className = 'detail-back-link';
+  backLink.innerHTML = '<i class="fas fa-arrow-left"></i> Back to shop';
+  root.appendChild(backLink);
+
+  // Content wrapper for grid layout
+  const contentWrapper = document.createElement('div');
+  contentWrapper.className = 'detail-content-wrapper';
 
   // Image section
   const imageSection = document.createElement('div');
@@ -24,7 +35,7 @@ export default function ProductDetail (product: Product | null): HTMLElement {
   
   imageContainer.appendChild(img);
   imageSection.appendChild(imageContainer);
-  root.appendChild(imageSection);
+  contentWrapper.appendChild(imageSection);
 
   // Info section
   const infoSection = document.createElement('div');
@@ -45,15 +56,18 @@ export default function ProductDetail (product: Product | null): HTMLElement {
   price.textContent = `${(product as any).price.toFixed(2)} kr`;
   infoSection.appendChild(price);
 
+  const { showPopup } = PopUpComponent();
+
   const button = document.createElement('button');
   button.className = 'product-detail-add-to-cart-button';
   button.textContent = 'Add to Cart';
   button.addEventListener('click', () => {
-    alert(`${product.name} added to cart!`);
+    showPopup(`${product.name} added to cart!`, 2500);
   });
   infoSection.appendChild(button);
 
-  root.appendChild(infoSection);
+  contentWrapper.appendChild(infoSection);
+  root.appendChild(contentWrapper);
   return root; 
 }
 
