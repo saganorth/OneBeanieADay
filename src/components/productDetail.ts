@@ -10,18 +10,14 @@ export default function ProductDetail (product: Product | null): HTMLElement {
     return root;
   }
 
-  // Subtle back link
   const backLink = document.createElement('a');
   backLink.href = '/shop';
   backLink.className = 'detail-back-link';
   backLink.innerHTML = '<i class="fas fa-arrow-left"></i> Back to shop';
   root.appendChild(backLink);
-
-  // Content wrapper for grid layout
   const contentWrapper = document.createElement('div');
   contentWrapper.className = 'detail-content-wrapper';
 
-  // Image section
   const imageSection = document.createElement('div');
   imageSection.className = 'product-detail-image-section';
   
@@ -37,7 +33,6 @@ export default function ProductDetail (product: Product | null): HTMLElement {
   imageSection.appendChild(imageContainer);
   contentWrapper.appendChild(imageSection);
 
-  // Info section
   const infoSection = document.createElement('div');
   infoSection.className = 'product-detail-info-section';
 

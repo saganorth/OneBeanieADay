@@ -23,14 +23,11 @@ function createStyleFilter(): HTMLElement {
     <label class="filter-label">Style:</label>
     <select class="style-filter">
       <option value="">All Styles</option>
+      <option value="baret">Baret</option>
+      <option value="bonnet">Bonnet</option>
+      <option value="casual">Casual</option>
       <option value="scrappy">Scrappy</option>
       <option value="simple">Simple</option>
-      <option value="casual">Casual</option>
-      <option value="minimalist">Minimalist</option>
-      <option value="bohemian">Bohemian</option>
-      <option value="classic">Classic</option>
-      <option value="vintage">Vintage</option>
-      <option value="modern">Modern</option>
     </select>
   `;
   return filterDiv;
@@ -43,10 +40,12 @@ function createMaterialFilter(): HTMLElement {
     <label class="filter-label">Material:</label>
     <select class="material-filter">
       <option value="">All Materials</option>
-      <option value="crochet">Crochet</option>
-      <option value="crochet simple">Crochet Simple</option>
-      <option value="crochet scrappy">Crochet Scrappy</option>
-      <option value="crochet simple scrappy">Crochet Simple Scrappy</option>
+      <option value="acrylic">Acrylic</option>
+      <option value="cotton">Cotton</option>
+      <option value="mix">Mix</option>
+      <option value="Mix">Mix (uppercase)</option>
+      <option value="polyseter">Polyester</option>
+      <option value="wool">Wool</option>
     </select>
   `;
   return filterDiv;

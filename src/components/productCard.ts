@@ -9,7 +9,6 @@ export default function productCard(
   const card = document.createElement('div');
   card.className = 'product-card';
 
-  // Product image container with link
   const imageContainer = document.createElement('div');
   imageContainer.className = 'product-image';
   

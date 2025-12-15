@@ -18,11 +18,10 @@ export default function shopPage(
         }
     };
 
-    // Container for product list (will be replaced on filter)
+
     const productListContainer = document.createElement('div');
     productListContainer.className = 'product-list-wrapper';
 
-    // Create initial product list
     const initialProductList = ProductList({
         products: products as any,
         handleAddToCart: addByProduct as any,
@@ -30,14 +29,10 @@ export default function shopPage(
     });
     productListContainer.appendChild(initialProductList);
 
-    // Create filter component
+
     const filterComponent = createProductFilter((filters: FilterOptions) => {
         const filteredProducts = filterProducts(products, filters);
-        
-        // Clear container
         productListContainer.innerHTML = '';
-
-        // Create and append new filtered product list
         const newProductList = ProductList({
             products: filteredProducts as any,
             handleAddToCart: addByProduct as any,
