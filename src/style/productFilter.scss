@@ -14,7 +14,7 @@
   }
 
   @media (min-width: 1024px) {
-    grid-template-columns: 2fr repeat(3, 1fr) auto;
+    grid-template-columns: 2fr repeat(4, 1fr) auto;
     align-items: end;
   }
 }

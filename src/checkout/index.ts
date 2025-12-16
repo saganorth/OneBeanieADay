@@ -5,7 +5,6 @@ export default function checkoutPage(): HTMLElement {
     const container = document.createElement('div');
     container.className = 'checkout-page-container';
 
-    // Subtle back to cart link
     const backLink = document.createElement('a');
     backLink.href = '/cart';
     backLink.className = 'checkout-back-link';

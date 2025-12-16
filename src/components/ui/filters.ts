@@ -17,15 +17,11 @@ export function createColorFilter(): HTMLElement {
     { value: "green", label: "Green" },
     { value: "yellow", label: "Yellow" },
     { value: "pink", label: "Pink" },
-    { value: "purple", label: "Purple" },
     { value: "orange", label: "Orange" },
-    { value: "brown", label: "Brown" },
     { value: "black", label: "Black" },
     { value: "white", label: "White" },
     { value: "multicolor", label: "Multicolor" },
     { value: "gray", label: "Gray" },
-    { value: "teal", label: "Teal" },
-    { value: "beige", label: "Beige" }
   ]);
 }
 
@@ -34,18 +30,15 @@ export function createStyleFilter(): HTMLElement {
     { value: "scrappy", label: "Scrappy" },
     { value: "simple", label: "Simple" },
     { value: "casual", label: "Casual" },
-    { value: "minimalist", label: "Minimalist" },
-    { value: "bohemian", label: "Bohemian" },
-    { value: "classic", label: "Classic" },
-    { value: "vintage", label: "Vintage" },
-    { value: "modern", label: "Modern" }
+
   ]);
 }
 
 export function createMaterialFilter(): HTMLElement {
   return createFilterSelect("Material", "material-filter", "All Materials", [
-    { value: "simple", label: "Simple" },
-    { value: "scrappy", label: "Scrappy" },
-    { value: "simple scrappy", label: "Simple & Scrappy" }
+    { value: "cotton", label: "Cotton" },
+    { value: "wool", label: "Wool" },
+    { value: "acrylic", label: "Acrylic" },
+    { value: "mix", label: "Mix" },
   ]);
 }

@@ -2,10 +2,7 @@ import type Product from '../models/productIteam';
 import { addToCart } from '../context/cartContext';
 
 export default function productCard(
-  product: Product,
-  handleAddToCart: (p: Product) => void,
-  showPopup: (msg: string) => void
-): HTMLElement {
+product: Product, handleAddToCart: (p: Product) => void, showPopup: (msg: string) => void): HTMLElement {
   const card = document.createElement('div');
   card.className = 'product-card';
 

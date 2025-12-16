@@ -1,7 +1,6 @@
 import type { Products } from '../models/productIteam';
 import ProductList from '../components/productList';
-import { createProductFilter } from '../components/ui/createFilter';
-import { filterProducts } from '../components/ui/productFilter';
+import { filterProducts, createProductFilter } from '../components/ui/productFilter';
 import type { FilterOptions } from '../models/filterInter';
 import '../style/productFilter.scss';
 
@@ -13,35 +12,36 @@ export default function shopPage(
     container.className = 'shop-container';
 
     const addByProduct = (product: Products) => {
-        if (product && product.id) {
+        if (product?.id) {
             handleAddToCart(product.id);
         }
     };
 
-
     const productListContainer = document.createElement('div');
     productListContainer.className = 'product-list-wrapper';
 
-    const initialProductList = ProductList({
-        products: products as any,
-        handleAddToCart: addByProduct as any,
-        assetBaseUrl: '/public',
-    });
-    productListContainer.appendChild(initialProductList);
-
-
-    const filterComponent = createProductFilter((filters: FilterOptions) => {
-        const filteredProducts = filterProducts(products, filters);
+    const renderProducts = (productsToRender: Products[]) => {
         productListContainer.innerHTML = '';
-        const newProductList = ProductList({
-            products: filteredProducts as any,
+        const productList = ProductList({
+            products: productsToRender as any,
             handleAddToCart: addByProduct as any,
             assetBaseUrl: '/public',
         });
-        productListContainer.appendChild(newProductList);
+        productListContainer.appendChild(productList);
+    };
+
+    
+    const filterComponent = createProductFilter((filters: FilterOptions) => {
+        const filteredProducts = filterProducts(products, filters);
+        renderProducts(filteredProducts);
     });
+
+    
+    renderProducts(products);
+
 
     container.appendChild(filterComponent);
     container.appendChild(productListContainer);
+    
     return container;
 }

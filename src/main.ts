@@ -6,10 +6,10 @@ import homePage from "./home/index";
 import shopPage from "./shop/index";
 import cartPage from "./cart/index";
 import checkoutPage from "./checkout/index";
+import ThankYouPage from "./components/thank";
 import products from "./data/products";
 import Footer from "./components/ui/footer";
 import { renderProductDetailById } from "./components/productDetail";
-
 
 const app = document.getElementById('app');
 
@@ -28,7 +28,9 @@ function handleAddToCart(productId: string) {
   console.log('add-to-cart', productId);
 }
 
-if (pathname === '/checkout') {
+if (pathname === '/thank-you') {
+  app.appendChild(ThankYouPage());
+} else if (pathname === '/checkout') {
   app.appendChild(checkoutPage());
 } else if (pathname === '/cart') {
   app.appendChild(cartPage(products as any));

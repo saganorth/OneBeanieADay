@@ -1,7 +1,6 @@
 import FormComponent from "./form";
 import PopUpComponent from "./popup";
 
-
 export default function CheckOutComponent(): HTMLElement {
     const root = document.createElement('div');
     root.className = 'checkout-component';
@@ -35,6 +34,8 @@ export default function CheckOutComponent(): HTMLElement {
     
     let selectedPayment: HTMLButtonElement | null = null;
     
+  // ...existing code...
+
     function highlightButton(selectedButton: HTMLButtonElement) {
         [cardButton, klarnaButton, swishButton].forEach(btn => {
             btn.classList.remove('selected');
@@ -46,19 +47,24 @@ export default function CheckOutComponent(): HTMLElement {
     cardButton.addEventListener('click', () => {
         highlightButton(cardButton);
     });
+    
     klarnaButton.addEventListener('click', () => {
         highlightButton(klarnaButton);
     });
+    
     swishButton.addEventListener('click', () => {
         highlightButton(swishButton);
     });
 
+
     root.appendChild(paymentInfo);
 
     const checkoutButton = document.createElement('button');
+    checkoutButton.type = 'button'; 
     checkoutButton.className = 'finalize-checkout-button';
     checkoutButton.textContent = 'Place Order';
     root.appendChild(checkoutButton);
+
 
     const { showPopup } = PopUpComponent();
     checkoutButton.addEventListener('click', () => {
@@ -66,8 +72,10 @@ export default function CheckOutComponent(): HTMLElement {
             showPopup('Please select a payment method', 2000);
             return;
         }
-        showPopup('Thank you for your order! 🎉', 2000);
+        setTimeout(() => {
+            window.location.href = '/thank-you';
+        }, 1000);
     });
-
     return root;
+
 }

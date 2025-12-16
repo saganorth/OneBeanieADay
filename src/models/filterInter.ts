@@ -1,5 +1,5 @@
 export interface FilterOptions {
-  searchQuery?: string;
+  search?: string;
   size?: string;
   colors?: string[];
   style?: string[];

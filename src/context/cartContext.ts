@@ -1,5 +1,5 @@
 
-import type { Product } from '../models/productIteam';
+import type { Products as Product } from '../models/productIteam';
 
 type CartItem = Product & {
   quantity: number;
