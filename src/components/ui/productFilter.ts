@@ -5,8 +5,14 @@ import { createSizeFilter, createColorFilter, createStyleFilter, createMaterialF
 export function filterProducts(products: Products[], filters: FilterOptions): Products[] {
   return products.filter(product => {
     if (filters.size && product.size !== filters.size) return false;
-    if (filters.colors && product.colors !== filters.colors) return false;
-    if (filters.style && product.style !== filters.style) return false;
+    if (filters.colors && filters.colors.length > 0 && !product.colors?.some(color => filters.colors?.includes(color))) return false;
+  if (filters.style && filters.style.length > 0) {
+      const ps = (product as any).style as string | string[] | undefined;
+      const match = Array.isArray(ps)
+        ? ps.some(s => filters.style!.includes(s))
+        : ps ? filters.style!.includes(ps) : false;
+      if (!match) return false;
+    }
     if (filters.material && product.material !== filters.material) return false;
     if (filters.search && !product.name?.toLowerCase().includes(filters.search.toLowerCase())) return false;
     return true;

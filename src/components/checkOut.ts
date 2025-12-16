@@ -34,8 +34,6 @@ export default function CheckOutComponent(): HTMLElement {
     
     let selectedPayment: HTMLButtonElement | null = null;
     
-  // ...existing code...
-
     function highlightButton(selectedButton: HTMLButtonElement) {
         [cardButton, klarnaButton, swishButton].forEach(btn => {
             btn.classList.remove('selected');

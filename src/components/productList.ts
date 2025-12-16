@@ -5,7 +5,6 @@ import productCard from './productCard';
 export default function ProductList({
   products,
   handleAddToCart,
-  assetBaseUrl = '',
 }: ProductListProps): HTMLElement {
   const grid = document.createElement('div');
   grid.className = 'products-grid';
@@ -13,7 +12,7 @@ export default function ProductList({
   const { showPopup } = PopUpComponent();
 
   products.forEach((product: ProductListProps['products'][number]) => {
-    const cardElem = productCard(product as any, handleAddToCart as any, showPopup as any, assetBaseUrl);
+    const cardElem = productCard(product as any, handleAddToCart as any, showPopup as any);
     grid.appendChild(cardElem);
   });
 
