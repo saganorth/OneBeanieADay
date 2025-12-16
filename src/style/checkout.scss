@@ -128,6 +128,8 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
   margin-bottom: 2rem;
 
+
+}
   h2 {
     margin-top: 0;
     margin-bottom: 1rem;
@@ -164,11 +166,12 @@
       border-color: #ccc;
       background: #fafafa;
     }
- &.selected {
-   border-color: #111 !important;
-      background: #111 !important; 
-      font-weight: 700;
-      color: #fff !important; 
+  &.selected {
+      background: #fff !important;
+      color: #111 !important;
+      border-color: #111 !important;
+      box-shadow: 0 0 0 3px rgba(17, 17, 17, 0.1);
+      transform: none;
     }
     &:active {
       transform: scale(1.02);
@@ -178,7 +181,7 @@
       outline: none;
     }
   }
-}
+
 
 .finalize-checkout-button {
   display: block;

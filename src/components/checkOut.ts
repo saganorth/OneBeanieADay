@@ -1,5 +1,6 @@
 import FormComponent from "./form";
 import PopUpComponent from "./popup";
+import "../style/checkout.scss";
 
 export default function CheckOutComponent(): HTMLElement {
     const root = document.createElement('div');
@@ -37,9 +38,11 @@ export default function CheckOutComponent(): HTMLElement {
     function highlightButton(selectedButton: HTMLButtonElement) {
         [cardButton, klarnaButton, swishButton].forEach(btn => {
             btn.classList.remove('selected');
+            btn.setAttribute('aria-pressed', 'false');
         });
-        selectedButton.classList.add('selected');
-        selectedPayment = selectedButton;
+       selectedButton.classList.add('selected');
+       selectedButton.setAttribute('aria-pressed', 'true');
+       selectedPayment = selectedButton;
     }
 
     cardButton.addEventListener('click', () => {
