@@ -1,6 +1,5 @@
 import type Product from '../models/productIteam';
-
-export default function productImg(product: Product, assetBaseUrl = ""): HTMLElement {
+export default function productImg(product: Product ): HTMLElement {
     const container = document.createElement("div");
     container.className = "product-image-container";
     container.style.position = "relative";
