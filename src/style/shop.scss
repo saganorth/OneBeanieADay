@@ -163,7 +163,8 @@
       }
 
       .product-info {
-        padding: 1.5rem;
+        padding: 1rem;
+        gap:0.5rem;
         flex: 1;
         display: flex;
         flex-direction: column;
@@ -214,6 +215,7 @@
         cursor: pointer;
         transition: background 0.2s ease;
         letter-spacing: 0.5px;
+        margin-top: auto;
 
         &:hover {
           background: #333;
